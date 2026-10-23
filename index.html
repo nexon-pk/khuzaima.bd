@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Muhammad Khuzaima's 2nd Birthday Celebration | A Special Surprise</title>
+  <meta name="description" content="A cinematic, interactive 2nd birthday celebration website for Muhammad Khuzaima from his uncle Ali Khawaja.">
+  <meta name="theme-color" content="#FFF1F6">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF8FB8'><path d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/></svg>">
+
+  <!-- Preconnect and Load Google Fonts for Sweet & Playful Birthday Aesthetics -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet (Relative path for GitHub Pages compatibility) -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Floating Clouds & Twinkling Sparkles -->
+  <div class="ambient-clouds" aria-hidden="true">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <svg class="sparkle-decor" style="top: 14%; left: 12%; width: 20px; height: 20px;" viewBox="0 0 24 24" fill="#E8BE69">
+      <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+    </svg>
+    <svg class="sparkle-decor" style="top: 25%; right: 14%; width: 22px; height: 22px; animation-delay: 1.2s;" viewBox="0 0 24 24" fill="#FF8FB8">
+      <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+    </svg>
+    <svg class="sparkle-decor" style="bottom: 20%; left: 8%; width: 16px; height: 16px; animation-delay: 2s;" viewBox="0 0 24 24" fill="#E8BE69">
+      <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+    </svg>
+    <svg class="sparkle-decor" style="bottom: 26%; right: 10%; width: 18px; height: 18px; animation-delay: 0.7s;" viewBox="0 0 24 24" fill="#CDEBFF">
+      <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+    </svg>
+  </div>
+
+  <!-- Fullscreen Particle Effects Canvas (Fireworks & Confetti) -->
+  <canvas id="celebration-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Navigation & Stage Progress Indicator -->
+  <header class="top-nav">
+    <div class="site-badge">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#E85D88" aria-hidden="true">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+      <span>Khuzaima Turns 2</span>
+    </div>
+
+    <!-- 5 Stage Progress Dots -->
+    <div class="stage-indicators" role="progressbar" aria-label="Presentation Progress">
+      <div class="stage-dot active" aria-current="step" title="Stage 1: Countdown"></div>
+      <div class="stage-dot" title="Stage 2: Balloons Reveal"></div>
+      <div class="stage-dot" title="Stage 3: Photo Cake"></div>
+      <div class="stage-dot" title="Stage 4: Birthday Gifts"></div>
+      <div class="stage-dot" title="Stage 5: Birthday Wishes"></div>
+    </div>
+
+    <!-- Music & Celebration Sound Toggle -->
+    <button id="sound-toggle-btn" class="sound-toggle-btn" aria-label="Toggle Birthday Music" title="Play / Mute Birthday Melody">
+      <svg class="sound-svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Main Presentation Container (Only one stage active at a time) -->
+  <main id="presentation-container">
+
+    <!-- ======================================================================
+         STAGE 1: COUNTDOWN & FIREWORKS
+         ====================================================================== -->
+    <section id="stage-countdown" class="stage-view stage-active" aria-label="Countdown & Celebration">
+      <div class="stage-content">
+        <!-- Floating mini-balloons for Stage 1 backdrop -->
+        <div id="stage1-balloons-bg" class="floating-balloons-bg" aria-hidden="true"></div>
+
+        <!-- Animated Countdown Numbers 3, 2, 1 -->
+        <div id="countdown-display" class="countdown-container" aria-live="polite">
+          <span class="countdown-number">3</span>
+        </div>
+
+        <!-- Post-Countdown Fireworks & Name Reveal -->
+        <div id="stage1-reveal" class="stage1-reveal" style="display: none;">
+          <p class="stage1-tagline">IT'S YOUR SPECIAL DAY</p>
+          <h1 class="stage1-name">MUHAMMAD KHUZAIMA</h1>
+          <div class="stage1-badge">
+            <span>Happy 2nd Birthday</span>
+          </div>
+
+          <button id="stage1-next-btn" class="celebrate-btn btn-hidden" type="button">
+            <span>Let's Celebrate</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 2: BALLOONS NAME REVEAL
+         ====================================================================== -->
+    <section id="stage-balloons" class="stage-view" aria-hidden="true" aria-label="Balloons Name Reveal">
+      <div class="stage-content stage2-container">
+        <!-- Coordinated Red & Royal-Blue Balloon Cluster -->
+        <div id="stage2-balloon-cluster" class="balloon-cluster" aria-hidden="true"></div>
+
+        <!-- Center Greeting Card -->
+        <div class="greeting-card">
+          <span class="greeting-badge">A Special Surprise</span>
+          <p class="greeting-h1">HAPPY BIRTHDAY</p>
+          <h2 class="greeting-name">MUHAMMAD KHUZAIMA</h2>
+
+          <button id="stage2-next-btn" class="celebrate-btn btn-hidden" type="button">
+            <span>Assemble Cake</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 3: 3-TIER PHOTO CAKE ASSEMBLY
+         ====================================================================== -->
+    <section id="stage-cake" class="stage-view" aria-hidden="true" aria-label="Interactive Cake Assembly">
+      <div class="stage-content cake-stage-container">
+
+        <!-- 3-Tier Assembling Cake Scene -->
+        <div class="cake-scene">
+
+          <!-- Cake Topper -->
+          <div id="cake-topper" class="cake-topper-container">
+            <svg class="topper-svg-crown" width="28" height="22" viewBox="0 0 24 24" fill="#E8BE69" aria-hidden="true">
+              <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+            </svg>
+            <span class="topper-script">Khuzaima</span>
+          </div>
+
+          <!-- Two Flickering Candles for Age 2 -->
+          <div class="candles-row" aria-hidden="true">
+            <div class="birthday-candle"><div class="candle-flame"></div></div>
+            <div class="birthday-candle"><div class="candle-flame"></div></div>
+          </div>
+
+          <!-- Cake Tiers Stack -->
+          <div class="cake-stand">
+            <!-- Top Tier (Enters from top) -->
+            <div id="tier-top" class="cake-tier tier-top">
+              <div class="tier-photo-frame">
+                <img src="./assets/images/cake-layer-3.jpg" alt="Muhammad Khuzaima" class="tier-photo-img" style="object-position: center 18%;">
+                <span class="tier-label">Superstar</span>
+              </div>
+            </div>
+
+            <!-- Middle Tier (Enters from side) -->
+            <div id="tier-middle" class="cake-tier tier-middle">
+              <div class="tier-photo-frame">
+                <img src="./assets/images/cake-layer-2.jpg" alt="Muhammad Khuzaima" class="tier-photo-img" style="object-position: center 18%;">
+                <span class="tier-label">Age 2</span>
+              </div>
+            </div>
+
+            <!-- Bottom Tier (Enters from bottom) -->
+            <div id="tier-bottom" class="cake-tier tier-bottom">
+              <div class="tier-photo-frame">
+                <img src="./assets/images/cake-layer-1.jpg" alt="Muhammad Khuzaima" class="tier-photo-img" style="object-position: center 22%;">
+                <span class="tier-label">Khuzaima</span>
+              </div>
+            </div>
+
+            <!-- Decorative Cake Plate -->
+            <div class="cake-plate" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Assembly Caption -->
+        <div id="cake-caption" style="opacity: 0;">
+          <h2 class="cake-caption-badge">LEVEL 2 UNLOCKED</h2>
+        </div>
+
+        <button id="stage3-next-btn" class="celebrate-btn btn-hidden" type="button">
+          <span>Open Gifts</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 4: BIRTHDAY GIFTS (3 SUB-STAGES)
+         ====================================================================== -->
+    <section id="stage-gifts" class="stage-view" aria-hidden="true" aria-label="Birthday Gift Reveals">
+      <div class="stage-content gifts-container">
+
+        <!-- ------------------------------------------------------------------
+             GIFT 1: £100,000,000 Cheque
+             ------------------------------------------------------------------ -->
+        <div id="gift-view-1" class="gift-view gift-active">
+          <div class="gift-header-badge">
+            <span>GIFT 1 OF 3</span>
+          </div>
+
+          <div id="cheque-preview-wrapper" class="cheque-wrapper" title="Tap to view full size">
+            <img src="./assets/images/cheque-gift.jpg" alt="£100,000,000 Birthday Cheque" class="cheque-img">
+            <div class="cheque-interactive-tag">
+              <span>Tap to enlarge</span>
+            </div>
+          </div>
+
+          <h3 class="gift-title">£100,000,000 Birthday Cheque</h3>
+          <span class="imaginary-prop-pill">IMAGINARY BIRTHDAY GIFT</span>
+
+          <button id="gift1-next-btn" class="celebrate-btn btn-hidden" type="button">
+            <span>Next: iPhones</span>
+          </button>
+        </div>
+
+        <!-- ------------------------------------------------------------------
+             GIFT 2: Two iPhone 18 Pro Max
+             ------------------------------------------------------------------ -->
+        <div id="gift-view-2" class="gift-view" aria-hidden="true">
+          <div class="gift-header-badge">
+            <span>GIFT 2 OF 3</span>
+          </div>
+
+          <div class="phones-display-arena">
+            <div id="phone-card-left" class="phone-card phone-card-left">
+              <img src="./assets/images/iphone-gift.png" alt="iPhone 18 Pro Max" class="phone-img">
+            </div>
+            <div id="phone-card-right" class="phone-card phone-card-right">
+              <img src="./assets/images/iphone-gift.png" alt="iPhone 18 Pro Max" class="phone-img">
+            </div>
+          </div>
+
+          <h3 class="gift-title">2 × iPhone 18 Pro Max</h3>
+          <span class="imaginary-prop-pill">IMAGINARY BIRTHDAY GIFT</span>
+
+          <button id="gift2-next-btn" class="celebrate-btn btn-hidden" type="button">
+            <span>Next: Range Rovers</span>
+          </button>
+        </div>
+
+        <!-- ------------------------------------------------------------------
+             GIFT 3: Two Range Rovers
+             ------------------------------------------------------------------ -->
+        <div id="gift-view-3" class="gift-view" aria-hidden="true">
+          <div class="gift-header-badge">
+            <span>GIFT 3 OF 3</span>
+          </div>
+
+          <div class="cars-display-arena">
+            <div id="car-card-1" class="car-card">
+              <img src="./assets/images/rangerover-gift.jpg" alt="Range Rover SUV" class="car-card entered car-img">
+            </div>
+          </div>
+
+          <h3 class="gift-title">2 × RANGE ROVER</h3>
+          <span class="imaginary-prop-pill">IMAGINARY BIRTHDAY GIFT</span>
+
+          <!-- Advances to Stage 5 -->
+          <button id="gift3-next-btn" class="celebrate-btn btn-hidden" type="button">
+            <span>Personal Wishes</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         STAGE 5: PERSONAL BIRTHDAY WISHES
+         ====================================================================== -->
+    <section id="stage-wishes" class="stage-view" aria-hidden="true" aria-label="Personal Birthday Wishes">
+      <div class="stage-content">
+        <div class="wishes-container">
+          <!-- Framed Portrait with Golden SVG Crown -->
+          <div class="portrait-frame-wrapper">
+            <svg class="portrait-svg-crown" width="34" height="26" viewBox="0 0 24 24" fill="#E8BE69" aria-hidden="true">
+              <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+            </svg>
+            <div class="portrait-frame">
+              <img src="./assets/images/birthday-portrait.jpg" alt="Muhammad Khuzaima" class="portrait-photo" style="object-position: center 18%;">
+            </div>
+          </div>
+
+          <p class="wishes-heading-1">HAPPY 2ND BIRTHDAY</p>
+          <h2 class="wishes-heading-name">MUHAMMAD KHUZAIMA</h2>
+
+          <!-- Heartfelt Prayer & Uncle's Message -->
+          <div class="wishes-message-box">
+            <p class="wishes-message-text">
+              "Happy 2nd birthday, my little superstar! May Allah bless you with happiness, health, endless smiles, and a beautiful life. Lots of love from your uncle, Ali Khawaja."
+            </p>
+          </div>
+
+          <p class="wishes-signature">LOTS OF LOVE, ALI KHAWAJA</p>
+
+          <!-- Replay Button -->
+          <button id="replay-btn" class="replay-btn" type="button">
+            <span>Play Again</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Modal for Cheque Full View -->
+  <div id="cheque-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Enlarged Birthday Cheque">
+    <div class="modal-content">
+      <button id="cheque-modal-close" class="modal-close-btn" aria-label="Close Preview">&times;</button>
+      <img src="./assets/images/cheque-gift.jpg" alt="£100,000,000 Cheque Detailed View" class="modal-img">
+      <div style="margin-top: 14px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <button id="modal-next-btn" class="celebrate-btn" type="button" style="margin-top: 0; padding: 12px 28px; font-size: 1.05rem;">
+          <span>Next: iPhones</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional Background Audio Element -->
+  <audio id="bg-audio" preload="none" src="./assets/audio/celebration.mp3"></audio>
+
+  <!-- Single Configuration File & Presentation Controller -->
+  <script src="./js/birthday-data.js"></script>
+  <script src="./js/main.js"></script>
+
+</body>
+</html>
